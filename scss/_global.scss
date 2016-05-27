@@ -17,4 +17,28 @@ body{
 	font-family: "brandon-grotesque",sans-serif;
 	
 	
+	
+	
+}
+
+
+.owl-dots{
+	position: absolute;
+	bottom: 45px;
+	@include translate(-50%,0%);
+	left: 50%;
+
+}
+.owl-dot{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin:0px 3px;
+	background: rgba(255,255,255,1);
+	@include border-radius(7px); 
+}
+.owl-dot.active{
+	background: rgba(255,255,255,.5);
+
+	border:2px solid #fff;
 }
