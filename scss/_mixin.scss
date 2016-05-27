@@ -67,6 +67,15 @@ $site-font : "brandon-grotesque",sans-serif;
     }
 }
 
+// Border Radius
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+   -webkit-border-bottom-left-radius: $radius;
+   border-bottom-left-radius: $radius;
+   background-clip: padding-box;
+}
+
 // LinearGradient
 @mixin linearGradient($top, $bottom){
     background: $top; /* Old browsers */
@@ -77,4 +86,10 @@ $site-font : "brandon-grotesque",sans-serif;
     background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
     background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin box-shadow($value) {
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+    box-shadow: $value;
 }

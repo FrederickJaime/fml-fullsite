@@ -5,8 +5,10 @@
 	position: relative;
 	display: block;
 	width: 100%;
-	height: 100vh;
+	
 	overflow: hidden;
+	min-height: 100vh;
+	
 
 	.section{
 		
@@ -16,11 +18,26 @@
 
 			position: relative;
 			display: block;
-			float: right;
+			
 			height: 100vh;
-			width: rem-calc(637);
-			padding: rem-calc(50);
-			z-index: 2;
+			
+			
+			z-index: 3;
+			
+			@include breakpoint(medium down){
+				float: none;
+				width: 90%;
+				margin: 0px auto;
+				padding: 5%;
+			}
+			
+			@include breakpoint(large){
+				float: right;
+				width: rem-calc(637);
+				padding: rem-calc(50);
+			}
+			
+			
 			
 			.dialog-content{
 
@@ -42,11 +59,23 @@
 				h2 span{
 					display: block;
 
-					&:first-child{
-						font-size: rem-calc(42);
+					
+					@include breakpoint(medium down){
+						&:first-child{
+							font-size: 6vw;
+						}
+						&:last-child{
+							font-size:3.4vw;
+						}
 					}
-					&:last-child{
-						font-size:rem-calc(24);
+					
+					@include breakpoint(large){
+						&:first-child{
+							font-size: rem-calc(42);
+						}
+						&:last-child{
+							font-size:rem-calc(24);
+						}
 					}
 				}
 				h2{
@@ -65,6 +94,16 @@
 					
 					@include translate(0%,-50%);
 					top:50%;
+					
+					img{width: 100%}
+					
+					@include breakpoint(medium down){
+						width: 20%;
+					}
+					
+					
+					
+					
 				}
 
 			}
@@ -74,8 +113,14 @@
 				background: #111;
 				height: auto;
 				width: 100%;
-				margin-top:rem-calc(40);
+				
 				z-index: 2;
+				@include breakpoint(medium down){
+					margin-top:6%;
+				}
+				@include breakpoint(large){
+					margin-top:rem-calc(40);
+				}
 			}
 			.dialog-content .video .video-wrapper{
 				position: relative;
@@ -116,7 +161,17 @@
 		}
 
 	}
-
+	.hero-guys{
+		
+		position: absolute;
+		z-index: 2;
+		bottom: 0px;
+		left: 40%;
+		width: calc(559/1280 * 100%);
+		@include translate(-50%,0%);
+		
+		@include breakpoint(medium down){display: none;}
+	}
 	.hero-bg{
 		position: absolute;
 		top:0%;
@@ -140,17 +195,78 @@
 	background: $black url('../img/fml-syp-bg.jpg');
 	background-size: cover;
 	
+	display: table;
+	width: 100%;
+	
+	@include breakpoint(medium down){
+		padding-left: 5%;
+	}
+	@include breakpoint(large up){
+		padding-left: 25%;
+	}
+	
 	overflow: hidden;
 	.section{
 		position: relative;
+		display: table-cell;
+		vertical-align:middle;
 		color:"#fff";
-
+		
+		
+		p{
+			position:relative;
+			
+			max-width: 504px;
+			@include brandonGrotesque-thin;
+			
+			line-height: 1.25;
+			
+			z-index: 2;
+			
+			@include breakpoint(small only){
+				width: 50%;
+				font-size:4vw;
+				padding:4% 0%;
+			}
+			@include breakpoint(medium down){
+				width: 50%;
+				font-size:rem-calc(20);
+				padding:4% 0%;
+			}
+			@include breakpoint(large up){
+				width: 90%;
+				font-size:rem-calc(20);
+			}
+			
+			
+			
+			
+			
+		}
 		.hand{
 			position: absolute;
-			top:0px;
+			
 			right: 0px;
 			display: block;
-			width: calc(450 / 1280 * 100%);
+			
+			
+			z-index: 1;
+			@include breakpoint(small only){
+				bottom:-5%;
+				width:45%;
+				height:auto;
+			}
+			
+			@include breakpoint(medium){
+				top:0px;
+				height:110%;
+				width:auto;
+			}
+			@include breakpoint(large up){
+				top:0px;
+				height:110%;
+				width:auto;
+			}
 
 		}
 	}
