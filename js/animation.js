@@ -7,7 +7,7 @@ var heroAnimation = new TimelineMax({paused:true});
 heroAnimation.to($("#herobg"), 2, {y:"+=50%",ease:Power2.easeOut}, 0 );
 
 var handAnimation = new TimelineMax({paused:true});
-handAnimation.from($(".hand"), 2, {y:"-=15%",ease:Power2.easeOut}, 0 );
+handAnimation.from($(".hand"), 2, {y:"-=12%",ease:Power2.easeOut}, 0 );
 
 var heroGuyAnimation = new TimelineMax({paused:true});
 heroGuyAnimation.to($(".hero-guys"), 2, {y:"+=10%",ease:Power2.easeOut}, 0 );
@@ -55,7 +55,7 @@ $(window).scroll(function(){
 		scrollTween(0, 2000, heroAnimation, 'vertical');
 		scrollTween(0, 2000, heroGuyAnimation, 'vertical');
 		
-		scrollTween(000, 2000, handAnimation, 'vertical');
+		scrollTween(000, 1500, handAnimation, 'vertical');
 		
 		/*
 		if(_windowWidth_ > 768){
