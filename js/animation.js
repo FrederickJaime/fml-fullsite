@@ -52,7 +52,7 @@ $(window).scroll(function(){
 		}
 		/*  INDIVIDUAL ANIMATIONS  CALLED */
 		
-		scrollTween(0, 2000, heroAnimation, 'vertical');
+		//scrollTween(0, 2000, heroAnimation, 'vertical');
 		scrollTween(0, 2000, heroGuyAnimation, 'vertical');
 		
 		scrollTween(000, 1500, handAnimation, 'vertical');

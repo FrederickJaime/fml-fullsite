@@ -95,3 +95,52 @@
 		width:calc(100%/3 - 3px);
 	}
 }
+
+
+.nav-mobile{
+	
+	position: relative;
+	display:block;
+	width: 92%;
+	margin:4% auto 0px auto;
+	z-index: 3;
+	background:$white;
+	padding: 2%;
+	@include clearfix;
+	@include border-radius(5px);
+	@include box-shadow(0px 0px 10px 0px rgba(0,0,0,.5));
+	
+	@include breakpoint(medium down){display: block;}
+	@include breakpoint(large){display:none;}
+	
+	
+	 .names{
+		position: relative;
+		display: block;
+		text-align: justify;
+		margin:0px;
+		text-transform: uppercase;
+		@include brandonGrotesque-bold;
+		font-size:1.25vw;
+		
+		span{
+			position:relative;
+			top:-2px;
+		}
+	}
+	
+	.site-logo{
+		position: relative;
+		
+		width: 24%;
+		margin:1% 0px 0px 0px;
+	}
+	
+	.social-holder{
+		position:relative;
+		float:right;
+		
+		
+		
+	}
+}

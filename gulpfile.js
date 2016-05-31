@@ -16,7 +16,10 @@ var sassPaths = [
 ];
 
 gulp.task('sass', function() {
-  return gulp.src('scss/**/*.scss')
+  return gulp.src([
+    'bower_components/owl.carousel/dist/assets/owl.carousel.css',
+    'scss/**/*.scss',
+    ])
     .pipe($.sass({
       includePaths: sassPaths
     }).on('error', $.sass.logError))
@@ -38,9 +41,12 @@ gulp.task('libsjs', function() {
   
   return gulp.src([
     'bower_components/jquery/dist/jquery.js',
+    'bower_components/owl.carousel/dist/owl.carousel.js',
     'bower_components/what-input/what-input.js',
     'bower_components/foundation-sites/dist/foundation.js',
     'bower_components/gsap/src/uncompressed/TweenMax.js'
+    
+    
     ])
     .pipe(uglify())
     .pipe(concat('libs.js'))

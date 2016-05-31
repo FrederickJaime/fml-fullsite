@@ -18,22 +18,58 @@ var FML = (function ($) {
   DialogH = 600,
   winTop = 0,
   sectRect = $(".section").get(0).getBoundingClientRect(),
-  winLeft = (screen.width / 2) - (DialogH / 2);
+  winLeft = (screen.width / 2) - (DialogH / 2),
+  navAnchors = $('.nav ul li a'),
+  siteSections = $('.fml-section'),
+  siteSectOffset = [];
 
     
 
   // Init - Anything you want to happen onLoad (usually event bindings)
   // -------------------------------------------------------------------
   var init = function () {
+    
+    
 
 
   	$('.nav').css({left:sectRect.left});
-  
-   
-/*
-    var owl = $('.owl-carousel');
+ 
+     var owlGal = $('.owl-carousel.gallery');
+     var owlBio = $('.owl-carousel.gallery-bio');
+     var owlProd = $('.owl-carousel.prods');
 
-     owl.owlCarousel({
+     owlGal.owlCarousel({
+        items:1,
+         dots:true,
+         loop:true,
+         autoplay:true,
+         autoplayTimeout:5000,
+         mouseDrag:true,
+        
+    });
+    
+    owlBio.owlCarousel({
+        items:1,
+         dots:true,
+         loop:false,
+         responsive:{
+              0:{
+                  items:1,
+                
+
+              },
+              900:{
+                  items:2,
+                  
+
+              }
+          }
+
+        
+    });
+  
+
+     owlProd.owlCarousel({
           loop:false,
           margin:15,
           mouseDrag:false,
@@ -46,7 +82,7 @@ var FML = (function ($) {
                   nav:false,
 
               },
-              900:{
+              1000:{
                   items:3,
                   nav:false,
 
@@ -57,33 +93,39 @@ var FML = (function ($) {
 
 
 
-     owl.on('changed.owl.carousel,next.owl.carousel,.owl.carousel', function(event) {
+     owlProd.on('changed.owl.carousel,next.owl.carousel,.owl.carousel', function(event) {
        var currItem = event.item.index;
        var itemTotal = event.item.count-1;
        
        if(currItem > 0 && currItem < itemTotal){
-          $('.arrow-left,.arrow-right').removeClass('hide-me');
+          $('.arrow-left.prod-gal-btn,.arrow-right.prod-gal-btn').removeClass('hide-me');
        }else if( currItem === 0){
-          $('.arrow-left').addClass('hide-me');
+          $('.arrow-left.prod-gal-btn').addClass('hide-me');
        }else if( currItem === itemTotal){
-          $('.arrow-right').addClass('hide-me');
+          $('.arrow-right.prod-gal-btn').addClass('hide-me');
        }
        
     });
 
-    $('.arrow-left').on('click',function(){
-      owl.trigger('prev.owl.carousel');
+    $('.arrow-left.prod-gal-btn').on('click',function(){
+      owlProd.trigger('prev.owl.carousel');
     //  console.log(owl.item.index);
     });
 
-    $('.arrow-right').on('click',function(){
+    $('.arrow-right.prod-gal-btn').on('click',function(){
       //console.log(owl.item.index);
-      owl.trigger('next.owl.carousel');
+      owlProd.trigger('next.owl.carousel');
     });
-    
-*/
- 
-/*
+   
+   $('.arrow-left.gallery-btn').on('click',function(){
+      owlGal.trigger('prev.owl.carousel');
+    });
+
+    $('.arrow-right.gallery-btn').on('click',function(){
+      owlGal.trigger('next.owl.carousel');
+    });
+   
+
       var client = ShopifyBuy.buildClient({
             apiKey: '37a49cc2f108d476bdf4af5eb479827a',
             myShopifyDomain: 'fmlmovie',
@@ -106,8 +148,8 @@ var FML = (function ($) {
       }).catch(function () {
        // console.log('Request failed');
       });
-*/
- /*
+
+ 
 
   $(".prod-btn,.prod-btn-full").on('click',function(e){
     e.preventDefault();
@@ -125,12 +167,22 @@ var FML = (function ($) {
 
 
   });
-*/
 
+  navAnchors.on('click',function(){
+    movingToSection($(this));
+  });
 
+$('.hero .section .pre-order-dialog .dialog-content .header a').on('click',function(e){
+  e.preventDefault();
+  $('.nav ul li').eq(1).find('a').click();
+  
+});
 
-
-
+$('.nav .site-logo').on('click',function(){
+  
+  TweenMax.to('body, html',1,{scrollTop:0,ease:Power2.easeInOut});
+  
+});
 
 
 
@@ -145,13 +197,26 @@ var FML = (function ($) {
 
 ////////////////----------/////////////////
 
+var movingToSection = function(sect){
+  siteSectOffset.length = 0;
+  
+  siteSections.each(function(){
+    siteSectOffset.push($(this).offset().top);
+  }); 
+  
+  scrollingTo(siteSectOffset[sect.parent().index()]);
+  
+}
 
+ var scrollingTo = function(spot){
+   TweenMax.to('body, html',1,{scrollTop:spot,ease:Power2.easeInOut});
+ }
 
-  var popitup = function(url) {
-    newwindow=window.open(url,'name','width='+DialogW+',height='+DialogH+',menubar=no,location=no,scrollbars=no,toolbar=no,left='+winLeft+',top='+winTop);
-    if (window.focus) {newwindow.focus()}
-    return false;
-  }
+var popitup = function(url) {
+  newwindow=window.open(url,'name','width='+DialogW+',height='+DialogH+',menubar=no,location=no,scrollbars=no,toolbar=no,left='+winLeft+',top='+winTop);
+  if (window.focus) {newwindow.focus()}
+  return false;
+}
 
 
 
@@ -167,6 +232,9 @@ var FML = (function ($) {
 $(document).ready(function () {FML.init();});
 $(document).foundation();
 
+var twFeeds = function(){
+
+}
 
 
 

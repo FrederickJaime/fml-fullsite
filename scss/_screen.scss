@@ -11,7 +11,7 @@
 	
 
 	.section{
-		
+		position:relative;
 		@include clearfix;
 
 		.pre-order-dialog{
@@ -19,7 +19,7 @@
 			position: relative;
 			display: block;
 			
-			height: 100vh;
+			min-height: 100vh;
 			
 			
 			z-index: 3;
@@ -138,7 +138,19 @@
 					height: 100%;
 				}
 
-			}			
+			}
+			.dialog-content .single-tweet{
+				position:relative;
+				display: block;
+				margin-top:30px;
+				z-index: 2;
+				background:rgba(255,255,255,.5);
+				
+				iframe{
+					position: relative;
+					width: 100% !important;
+				}
+			}		
 
 			.halfs{
 				position: absolute;
@@ -166,8 +178,10 @@
 		position: absolute;
 		z-index: 2;
 		bottom: 0px;
-		left: 40%;
-		width: calc(559/1280 * 100%);
+		left: 450px;
+		//width: calc(559/1280 * 100%);
+		width: 600px;
+		max-width: 600px;
 		@include translate(-50%,0%);
 		
 		@include breakpoint(medium down){display: none;}
@@ -190,33 +204,34 @@
 
 
 .synopsis{
-
-	min-height: 50vh;
+    position: relative;
+	
 	background: $black url('../img/fml-syp-bg.jpg');
 	background-size: cover;
 	
-	display: table;
+	
 	width: 100%;
 	
 	@include breakpoint(medium down){
 		padding-left: 5%;
 	}
-	@include breakpoint(large up){
-		padding-left: 25%;
-	}
+	
 	
 	overflow: hidden;
 	.section{
 		position: relative;
-		display: table-cell;
-		vertical-align:middle;
+		
+	
+		@include breakpoint(large up){
+			padding-left:300px;
+		}
 		color:"#fff";
 		
 		
 		p{
 			position:relative;
 			
-			max-width: 504px;
+			max-width: 400px;
 			@include brandonGrotesque-thin;
 			
 			line-height: 1.25;
@@ -236,6 +251,7 @@
 			@include breakpoint(large up){
 				width: 90%;
 				font-size:rem-calc(20);
+				padding:12% 0%;
 			}
 			
 			
@@ -246,49 +262,497 @@
 		.hand{
 			position: absolute;
 			
-			right: 0px;
+			right: -6%;
 			display: block;
 			
 			
 			z-index: 1;
 			@include breakpoint(small only){
-				bottom:-5%;
+				bottom:0%;
 				width:45%;
 				height:auto;
 			}
 			
-			@include breakpoint(medium){
-				top:0px;
-				height:110%;
-				width:auto;
+			@include breakpoint(medium up){
+				bottom:-4%;
+				height:auto;
+				width:43%;
 			}
-			@include breakpoint(large up){
-				top:0px;
-				height:110%;
-				width:auto;
-			}
+			
 
 		}
 	}
 
 
 }
-
-.order-bio{
-
-	min-height: 200vh;
-	background: $black url('../img/fml-order-bio-bg.jpg') center center;
-	background-size: cover;
-	
-
-	.section.order{
-		height: 100vh;
-		max-width: none;
+.order{
+	position: relative;
+	background: $black url('../img/fml-order-bg.jpg') top center;
+	background-size:cover;
+	.cover{
+		position: absolute;
+		width:100%;
+		height:100%;
+		z-index: 1;
+		left:0px;
+		top:0px;
+		
 		background: rgba(255,255,255,.9);
 	}
+	.section{
+		position: relative;
+		height: auto;
+		
+		z-index: 2;
 
+		@include breakpoint(medium down){
+
+			padding:10% 15%;
+		}
+		@include breakpoint(large up){
+			padding:10% 0 10% 300px;
+		}
+		
+
+		.products-holder{
+
+			position: relative;
+			display: block;
+			width: 100%;
+			
+			height: auto;
+			margin: 0px auto;
+			padding-right: 5%;
+			z-index: 2;
+			
+		.prods{
+			height:auto;
+		}
+
+			.arrow-btn{
+				position: absolute;
+				@include translate(-50%,-50%);
+				top:29%;
+				cursor: pointer;
+
+				
+				@include breakpoint(medium down){
+					display:block;
+				}
+				@include breakpoint(large up){
+					display:none;
+				}
+			}
+
+			.arrow-left{
+				left: -10%;
+			}
+
+			.arrow-right{
+				right:-90px;
+			}
+
+
+
+		}
+
+		.prod-btn-full{
+			position: absolute;
+			display: block;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: none;
+			z-index: 2;
+			
+			@include breakpoint(medium down){
+				display: none;
+			}
+		}
+
+		.products-holder .prods .prod .prod-content{
+			position: relative;
+			
+			@include breakpoint(medium up){
+				min-height: 600px;
+			}
+
+			img {
+				position: relative;
+				display: block;
+				width: 100%;
+				border:1px solid $black;
+				
+			}
+
+			h2{
+				position: relative;
+				display: block;
+				font-size: 24px;
+				@include brandonGrotesque-bold;
+				text-align: center;
+				line-height: 1.25;
+				margin: 12px 0px 20px 0px;
+
+				span{
+					position: relative;
+					display: block;
+					color:$orange;
+					font-size: 16px;
+					@include brandonGrotesque-black;
+				}
+
+			}
+
+			ul{
+				position: relative;
+				display: block;
+				padding-left: 20px;
+
+
+				li{
+					list-style-type: disc;
+					line-height: 1.25;
+					font-weight: lighter;
+					span{
+						font-weight: bold;
+					}
+				}
+			}
+			p{
+
+				position: relative;
+				font-size: 15px;
+				text-align: center;
+				font-weight: lighter;
+				line-height: 1.15;
+
+				span{
+					font-weight: bold;
+				}
+			}
+
+
+
+
+
+			.prod-btn{
+				
+				
+				bottom: 0px;
+				display: block;
+				width: 100%;
+				padding: 4px 0px;
+				text-align: center;
+				background: $black;
+				color: $orange;
+				border-radius: 4px;
+				font-size: 18px;
+				text-transform: uppercase;
+				font-weight: bold;
+				text-decoration: none;
+				@media only screen and (min-width : 900px) {
+					position: absolute;
+				}
+				@media only screen and (max-width : 899px) {
+					position: relative;
+				}
+
+				
+			}
+
+
+
+
+		}
+				
+		
+		
+		
+		
+		
+		
+	}
+	
+}
+
+
+.bio.fml-section{
+	position: relative;
+	background: $black url('../img/fml-bio-bg.jpg') bottom center;
+	background-size:cover;
+
+	.section{
+		position:relative;
+		z-index: 2;
+		@include breakpoint(medium down){
+
+			padding:0% 5% 0% 5%;
+		}
+		@include breakpoint(large up){
+			padding:5% 0 5% 300px;
+		}
+		
+			.gallery-bio{
+				position:relative;
+				display: block;
+						
+				
+			}
+			.bio .bio-image{
+				position: relative;
+				
+				padding-top:50%;
+				@include translate(0%,-15%);
+				display:inline-block;
+				width: 40%;
+				
+			}
+			.bio .bio-copy{
+				position:relative;
+				display:inline-block;
+				width: 45%;
+				vertical-align: top;
+				padding-top:50%;
+				@include translate(0%,-12%);
+				h2{
+					position:relative;
+					margin-bottom:40px;
+					white-space: nowrap;
+					font-size:rem-calc(22);
+					text-transform: uppercase;
+					color:$white;
+					@include brandonGrotesque-medium;
+					
+				}
+				p{
+					position:relative;
+					margin-bottom:20px;
+					font-size:rem-calc(14);
+					padding-left:6px;
+					color:$white;
+					@include brandonGrotesque-thin;
+				}
+				.bio-social{
+					position:relative;
+					width:45px;
+					display:inline-block;
+					margin-right:10px;
+					img{
+						width:100%;
+					}
+					
+				}
+			}
+	}
+	
 
 }
 
+
+
+.carousel-holder{
+	position: relative;
+	display: block;
+	height:auto;
+	overflow: hidden;
+	
+	.gallery-btn{
+		position:absolute;
+		top:50%;
+		@include translate(-50%,-50%);
+		z-index: 2;
+		cursor: pointer;
+	}
+	.arrow-left.gallery-btn{
+		left: 5%;
+	}
+	.arrow-right.gallery-btn{
+		right:0%;
+	}
+	.gallery{
+		position: relative;
+		width: 100%;
+		height: auto;
+		z-index: 1;
+		
+
+		
+
+
+	
+		
+		.slide{
+			position:relative;
+		
+			width: 100%;
+		}
+	}
+	
+}
+
+
+.footer{
+	position:relative;
+	background:$black;
+	padding-top:30px;
+	@include breakpoint(medium down){
+		padding-left: 5%;
+	}
+	@include breakpoint(large up){
+		padding-left:(350/1280 * 100%);
+	}
+	padding-bottom:rem-calc(40);
+	
+	
+	
+	.section .columns{
+		#mc_embed_signup{
+				position: relative;
+				
+				z-index: 2;
+				width: 308px;
+				@include breakpoint(medium down){
+					margin:0px auto;
+				}
+
+		}
+		#mc_embed_signup form .mc-field-group{
+				.mce_inline_error{
+					position: relative;
+			
+					width: 308px;
+					margin: 0px auto;
+				}
+		}
+		#mc_embed_signup form .mc-field-group input,
+		#mc_embed_signup form .mc-field-group textarea{
+			display: block;
+			width: 308px;
+			font-size: 14px;
+			color: #666;
+			padding: 8px 0px 8px 10px;
+			margin: 0px auto 7px auto;
+			
+			@include brandonGrotesque-regular;
+			border-radius: 0px;
+			border: none;
+			-webkit-appearance: none;
+
+		}
+		#mc_embed_signup form .mc-field-group textarea{
+				position: relative;
+				display: block;
+				width: 308px;
+
+				resize: none;
+				height: 100px;
+
+		}
+		#mc_embed_signup form .button{
+				position: relative;
+				cursor: pointer;
+				display: block;
+				background:#aba9a9;
+				@include brandonGrotesque-bold;
+				//font-family: Helvetica, sans-serif;
+				font-weight:bold;
+				text-transform: uppercase;
+				color:$black;
+				margin: 0px auto;
+				border: none;
+				width: 308px;
+				font-size: 26px;
+				padding: 3px 0px;
+				border-radius: 0px;
+				-webkit-appearance: none;
+		}
+		#mc_embed_signup form #mce-responses .response{
+				width: 60%;
+				text-align: center;
+				margin:0px auto;
+				padding:3% 0%;
+
+
+		}
+		
+		.social-links{
+			position:relative;
+			z-index: 2;
+			a{margin:0px 3px;}
+			@include breakpoint(medium down){
+				margin:6% auto 6% auto;
+				width: 308px;
+				
+				a img{
+					width: calc( 100% / 3 - 9px);
+				}
+				
+				
+			}
+			@include breakpoint(large){
+				float: right;
+				margin-right:5%;
+				
+			}
+		}
+		
+		
+	}
+	
+	.section .riot-logo{
+
+		z-index: 1;
+		
+		@include breakpoint(medium down){
+			position:relative;
+			
+			width:90%;
+			max-width: 308px;
+			margin: 0px auto;
+
+		}
+		
+		@include breakpoint(large){
+			position:absolute;
+			bottom:34px;
+			left: 40px;
+		}
+		
+		
+		p{
+			position:relative;
+			margin:0px;
+			font-family: Helvetica, sans-serif;
+			color:#666;
+			
+			font-weight: bold;
+			@include breakpoint(small down){
+				font-size:4.2vw;
+				text-align: right;
+				width: 50%;
+				line-height: 1.25;
+				float: right;
+				br{display: block;}
+			}
+			@include breakpoint(medium down){
+				font-size:rem-calc(20);
+				text-align: right;
+				width: 50%;
+				line-height: 1.25;
+				float: right;
+				br{display: block;}
+			}
+			@include breakpoint(large){
+				font-size:rem-calc(18);
+				float: none;
+				text-align: left;
+				br{display: none;}
+			}
+		}
+		
+	}
+}
 
 

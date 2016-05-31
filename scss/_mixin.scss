@@ -75,6 +75,11 @@ $site-font : "brandon-grotesque",sans-serif;
    border-bottom-left-radius: $radius;
    background-clip: padding-box;
 }
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
 
 // LinearGradient
 @mixin linearGradient($top, $bottom){

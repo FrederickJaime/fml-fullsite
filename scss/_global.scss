@@ -6,7 +6,9 @@ body{
 
 }
 
-
+.hide-me{
+    visibility: hidden;
+}
 
 
 .section{
@@ -24,9 +26,16 @@ body{
 
 .owl-dots{
 	position: absolute;
-	bottom: 45px;
+	
 	@include translate(-50%,0%);
 	left: 50%;
+	
+	@include breakpoint(small only){
+		bottom: 30px;
+	}
+	@include breakpoint(medium up){
+		bottom: 45px;
+	}
 
 }
 .owl-dot{
