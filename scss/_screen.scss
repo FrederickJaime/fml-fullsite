@@ -480,15 +480,16 @@
 
 .bio.fml-section{
 	position: relative;
-	background: $black url('../img/fml-bio-bg.jpg') bottom center;
+	background: $black url('../img/fml-bio-bg.jpg') top center;
 	background-size:cover;
+	
 
 	.section{
 		position:relative;
 		z-index: 2;
 		@include breakpoint(medium down){
 
-			padding:0% 5% 0% 5%;
+			padding:0% 12%;
 		}
 		@include breakpoint(large up){
 			padding:5% 0 5% 300px;
@@ -506,16 +507,31 @@
 				padding-top:50%;
 				@include translate(0%,-15%);
 				display:inline-block;
-				width: 40%;
+				
+				@include breakpoint(medium down){
+					width: 45%;
+				}
+				@include breakpoint(large up){
+					width: 40%;
+				}
 				
 			}
 			.bio .bio-copy{
 				position:relative;
 				display:inline-block;
-				width: 45%;
+				
 				vertical-align: top;
 				padding-top:50%;
 				@include translate(0%,-12%);
+				
+				@include breakpoint(medium down){
+					width: 50%;
+					padding-left:2%;
+				}
+				@include breakpoint(large up){
+					width: 45%;
+				}
+				
 				h2{
 					position:relative;
 					margin-bottom:40px;

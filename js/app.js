@@ -33,7 +33,10 @@ var FML = (function ($) {
 
 
   	$('.nav').css({left:sectRect.left});
- 
+    
+    
+    TweenMax.from(".nav",1,{autoAlpha:0,top:"-=150%",ease:Quint.easeOut,delay:1});
+    
      var owlGal = $('.owl-carousel.gallery');
      var owlBio = $('.owl-carousel.gallery-bio');
      var owlProd = $('.owl-carousel.prods');
