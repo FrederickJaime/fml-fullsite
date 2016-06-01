@@ -24,6 +24,10 @@
 			@include brandonGrotesque-bold;
 			font-size:rem-calc(48);
 			line-height: 1;
+			@include breakpoint(medium down){
+				display: none;
+				
+			}
 			
 		}
 		.pre-order-dialog{
