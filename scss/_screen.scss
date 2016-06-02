@@ -650,10 +650,24 @@
 				}
 
 		}
+		#mc_embed_signup h2{
+			
+			color:$white;
+			
+			display: block;
+			@include brandonGrotesque-bold;
+			text-align:center;
+			margin:0px 0 30px 0px;
+			
+				font-size:rem-calc(20);
+			
+			
+			
+		}
 		#mc_embed_signup form .mc-field-group{
 				.mce_inline_error{
 					position: relative;
-			
+					
 					width: 308px;
 					margin: 0px auto;
 				}
