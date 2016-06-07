@@ -1,6 +1,5 @@
-# Foundation for Sites Template wit Gulp
+# Foundation for Sites Template with GSAP and OWL Carousel
 
-**Please open all issues with this template on the main [Foundation for Sites](https://github.com/zurb/foundation-sites/issues) repo.**
 
 This is the basic starter project for [Foundation for Sites 6](http://foundation.zurb.com/sites). It includes a Sass compiler and a starter HTML file for you.
 
@@ -40,9 +39,9 @@ git clone https://github.com/zurb/foundation-sites-template projectname
 Then open the folder in your command line, and install the needed dependencies:
 
 ```bash
-cd projectname
+
 npm install
 bower install
 ```
 
-Finally, run `npm start` to run the Sass compiler. It will re-run every time you save a Sass file.
+Finally, run `gulp`
