@@ -4,7 +4,7 @@ var _windowWidth_,
 TweenMax.set("#herobg",{force3D:true});
 
 var heroAnimation = new TimelineMax({paused:true});
-heroAnimation.to($("#herobg"), 2, {y:"+=50%",ease:Power2.easeOut}, 0 );
+heroAnimation.to($("#herobg"), 2, {y:"+=50%",ease:Quint.easeOut}, 0 );
 
 var handAnimation = new TimelineMax({paused:true});
 handAnimation.from($(".hand"), 2, {y:"-=12%",ease:Power2.easeOut}, 0 );
